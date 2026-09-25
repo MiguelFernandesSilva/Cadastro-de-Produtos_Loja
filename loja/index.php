@@ -18,13 +18,20 @@
     ?>
     <div class="container">
         <form action="salvar.php" method="post">
-            <input 
+            <input
+            type="hidden"
+            name="id"
+            value="<?=$id?>"
+            >
+
+            <input
             type="text"
             name="nome"
             id="nome"
             value="<?=$register['nome'] ?? ''?>"
             placeholder="Nome"
             >
+
             <input
             type="text"
             name="descricao"
@@ -72,6 +79,7 @@
             <th> Valor </th>
             <th> Imagem </th>
             <th> Categoria </th>
+            <th> Ações </th>
         </thead>
         <tbody>
         <?php
@@ -86,7 +94,10 @@
             <td><?=$item['valor']?></td>
             <td><?=$item['imagem']?></td>
             <td><?=$item['categoria']?></td>
-            <td><a href="index.php?id=<?=$id?>"> Editar </a></td>
+            <td>
+                <a href="index.php?id=<?=$id?>"> Editar </a>
+                <a href="apagar.php?id=<?=$id?>"> Excluir </a>
+            </td>
         </tr>
 
         <?php
